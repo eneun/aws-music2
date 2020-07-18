@@ -9,7 +9,7 @@ git clone https://github.com/eneun/aws-music2.git
 sudo pip3 install --upgrade pip
 python3 -m venv venv
 . venv/bin/activate
-cd aws-music
+cd aws-music2
 pip3 install -r requirements.txt
 python3 manage.py migrate
 python3 manage.py collectstatic
