@@ -64,11 +64,23 @@ WSGI_APPLICATION = 'soundcloud.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+from .database import RdsSetting
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    # }
+    DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'NAME': 'user_data',
+        'ENGINE': 'mysql.connector.django',
+        'USER': 'myuser',
+        'PASSWORD': '1234',
+        'OPTIONS': {
+          'autocommit': True,
+        },
     }
+}
 }
 
 
@@ -118,4 +130,4 @@ MEDIA_URL = '/media/'
 AWS_S3_OBJECT_PARAMETERS = {
 	'CacheControl': 'max-age=86400',
 }
-DEFAULT_FILE_STORAGE = 'main.custom_storage.MediaStorage'
+# DEFAULT_FILE_STORAGE = 'main.custom_storage.MediaStorage'

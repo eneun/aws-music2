@@ -14,7 +14,8 @@
         <div class="bg-container">
             <div class="title">AWS MUSIC</div>
             <button type="button" class="btn btn-outline-info btn-lg" data-toggle="modal" data-target="#addMusic">음악 추가</button>
-            <button type="button" class="btn btn-outline-secondary btn-lg" data-toggle="modal" data-target="#admin">설정</button>
+            <button type="button" class="btn btn-outline-secondary btn-lg" data-toggle="modal" data-target="#s3Setting">S3 설정</button>
+            <button type="button" class="btn btn-outline-success btn-lg" data-toggle="modal" data-target="#rdsSetting">RDS 설정</button>
         </div>
         
         <div class="modal fade" id="addMusic" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -50,16 +51,16 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="admin" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="s3Setting" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">설정</h5>
+                        <h5 class="modal-title" id="exampleModalLabel">S3 설정</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <form action="{% url 'setting' %}" method="POST" enctype="multipart/form-data">
+                    <form action="{% url 's3_setting' %}" method="POST">
                         {% csrf_token %}
                         <div class="modal-body">
                             <div class="form-group">
@@ -69,6 +70,39 @@
                             <div class="form-group">
                                 <label class="col-form-label">S3 region:</label>
                                 <input name="s3-region" type="text" class="form-control"/>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                            <button type="submit" class="btn btn-primary">등록</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="rdsSetting" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">RDS 설정</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <form action="{% url 'rds_setting' %}" method="POST">
+                        {% csrf_token %}
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label class="col-form-label">RDS Endpoint:</label>
+                                <input name="rds-endpoint" type="text" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label">RDS User:</label>
+                                <input name="rds-user" type="text" class="form-control"/>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-form-label">RDS Password:</label>
+                                <input name="rds-password" type="text" class="form-control"/>
                             </div>
                         </div>
                         <div class="modal-footer">
