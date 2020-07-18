@@ -70,7 +70,6 @@ DATABASES = {
     #     'ENGINE': 'django.db.backends.sqlite3',
     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
-    DATABASES = {
     'default': {
         'NAME': 'user_data',
         'ENGINE': 'mysql.connector.django',
@@ -80,7 +79,6 @@ DATABASES = {
           'autocommit': True,
         },
     }
-}
 }
 
 
