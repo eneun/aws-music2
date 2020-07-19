@@ -24,5 +24,17 @@ def s3_setting(request):
     return redirect('main')
 
 def rds_setting(request):
-    
+    import mysql.connector
+
+    rds_endpoint = request.POST['rds-endpoint']
+    rds_user = request.POST['rds-user']
+    rds_password = request.POST['rds-password']
+
+    awsdb = mysql.connector.connect(
+        host=rds_endpoint,
+        user=rds_user,
+        password=rds_password,
+    )
+
+    print(awsdb)
     return redirect('main')
