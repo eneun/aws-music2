@@ -70,11 +70,11 @@ DATABASES = {
     #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     # }
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'database-1',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'deploy',
         'USER': 'masteruser',
         'PASSWORD': '12341234',
-        'HOST': 'database-1.cp7wfb6iwigx.us-east-1.rds.amazonaws.com',
+        'HOST': 'database-3.cp7wfb6iwigx.us-east-1.rds.amazonaws.com',
     }
 }
 
