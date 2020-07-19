@@ -71,9 +71,9 @@ DATABASES = {
     # }
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'OPTIONS': {
-            'read_default_file': '/my.cnf/',
-        },
+        'USER': 'masteruser',
+        'PASSWORD': '12341234',
+        'HOST': 'database-1.cp7wfb6iwigx.us-east-1.rds.amazonaws.com',
     }
 }
 
