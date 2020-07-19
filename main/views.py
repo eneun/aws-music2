@@ -30,11 +30,11 @@ def rds_setting(request):
     rds_user = request.POST['rds-user']
     rds_password = request.POST['rds-password']
 
-    awsdb = mysql.connector.connect(
+    mydb = mysql.connector.connect(
         host=rds_endpoint,
         user=rds_user,
         password=rds_password,
+        database="awsdb"
     )
 
-    print(awsdb)
     return redirect('main')
